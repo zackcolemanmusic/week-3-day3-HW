@@ -3,7 +3,7 @@ require_relative('../sql_runner.rb')
 
 class Artists
 
-  attr_reader(:name)
+  attr_reader(:id, :name)
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -13,7 +13,7 @@ class Artists
 
   def save()
 
-      sql = "INSERT INTO customers(name) VALUES ($1) RETURNING *"
+      sql = "INSERT INTO Artists(name) VALUES ($1) RETURNING *"
 
       values = [@name]
 
